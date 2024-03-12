@@ -30,7 +30,7 @@ function App() {
     console.log(postBody);
     const result = await axios.post("http://localhost:8080/getTimeTable",postBody);
     // setloading(false);
-    
+   
     setTimeTable(result.data);
     routeChange()
    
