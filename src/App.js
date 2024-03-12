@@ -28,7 +28,7 @@ function App() {
     postBody["deadline"]=deadline;
     postBody["tasks"]=todos.filter((item)=>item.isCompleted === false);
     console.log(postBody);
-    const result = await axios.post("http://localhost:8080/getTimeTable",postBody);
+    const result = await axios.post("https://waytodo.onrender.com/getTimeTable",postBody);
     // setloading(false);
    
     setTimeTable(result.data);
