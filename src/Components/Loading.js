@@ -3,7 +3,7 @@ import loading from "./loading.gif"
 
 export default function Loading() {
   return (
-    <div className='flex justify-center relative top-50 '>
+    <div className='flex h-screen justify-center items-center  '>
     <img src={loading} alt="loading" className='h-20 ' />
     </div>
   )
