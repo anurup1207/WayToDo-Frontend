@@ -3,6 +3,7 @@
 import './App.css';
 import Navbar from './Components/Navbar';
 import AddTask from './Components/AddTask';
+import Loading from './Components/Loading';
 import axios from 'axios';
 import { useState } from 'react';
 import {
@@ -14,7 +15,7 @@ import {
 import TimeTable from './Components/TimeTable';
 
 function App() {
-  // const [isloading,setloading] = useState(false);
+  const [isloading,setloading] = useState(false);
   const [timetable,setTimeTable] = useState({})
   const navigate = useNavigate();
   
@@ -23,13 +24,13 @@ function App() {
     navigate(path);
   }
   const handleAnalyze = async(deadline , todos)=>{
-    // setloading(true);
+    setloading(true);
     let postBody={};
     postBody["deadline"]=deadline;
     postBody["tasks"]=todos.filter((item)=>item.isCompleted === false);
     console.log(postBody);
     const result = await axios.post("https://waytodo.onrender.com/getTimeTable",postBody);
-    // setloading(false);
+    setloading(false);
    
     setTimeTable(result.data);
     routeChange()
@@ -41,13 +42,14 @@ function App() {
   <>
   
   <Navbar/>
-  <Routes>
+   {isloading && <Loading/>}
+ {!isloading && <Routes>
           <Route path="/" element={<AddTask handleAnalyze={handleAnalyze}/>}/>
           <Route path="/getTimeTable"  element={<TimeTable timetable={timetable}/>}/>
           
           
           
-  </Routes>
+  </Routes>}
   
  
    </>
