@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import axios from 'axios';
 
-export default function AddTask() {
+
+export default function AddTask(props) {
   const [task,setTask] = useState("");
   
   const [deadline,setDeadline] = useState("");
@@ -40,15 +40,10 @@ export default function AddTask() {
     setDeadline(e.target.value);
 
   }
-  const handleAnalyze = async()=>{
-     let postBody={};
-     postBody["deadline"]=deadline;
-     postBody["tasks"]=todos.filter((item)=>item.isCompleted === false);
-     console.log(postBody);
-     const result = await axios.post("http://localhost:8080/getTimeTable",postBody);
-     console.log(result.data);
-    
+  const handleAnalyze=()=>{
+    props.handleAnalyze(deadline,todos)
   }
+ 
   return (
     <>
     <div className='p-10'>
