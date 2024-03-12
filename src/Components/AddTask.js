@@ -59,11 +59,11 @@ export default function AddTask(props) {
       <div className="addTodo my-10 lg:flex justify-between items-center ">
         <div className="flex  items-center mb-2 lg:space-x-3">
         <h2 className='text-lg font-bold mr-2 w-40 lg:w-none'>Add Task</h2>
-        <input type="text" onChange={handleChangeName} value={task} className='w-80 h-10 rounded-md border-2 border-black lg:w-auto' placeholder='Add Your Task Here !' />
+        <input type="text" onChange={handleChangeName} value={task} className='w-80 h-10 rounded-md border-2 border-black lg:w-80' placeholder='Add Your Task Here !' />
         </div>
         <div className='flex items-center mb-2  lg:w-none'>
         <h2 className='text-lg font-bold mr-2 w-40'>Expected Time</h2>
-        <input type="number" onChange={handleChangeTime} value={expected_hours} className='h-10 w-80 rounded-md border-2 border-black ' placeholder='Expected Time to Complete'/>
+        <input type="number" onChange={handleChangeTime} value={expected_hours} className='h-10 w-80 lg:w-auto rounded-md border-2 border-black ' placeholder='Expected Time to Complete'/>
         </div>
         <button onClick={handleAdd} className='bg-violet-900 hover:bg-violet-950 text-white rounded-md py-1 px-3 text-sm font-bold'>Add</button>
       </div>

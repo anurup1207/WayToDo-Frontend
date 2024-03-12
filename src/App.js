@@ -40,7 +40,7 @@ function App() {
   return (
  
   <>
-  
+   
   <Navbar/>
    {isloading && <Loading/>}
  {!isloading && <Routes>
